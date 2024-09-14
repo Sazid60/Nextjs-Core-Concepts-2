@@ -9,8 +9,18 @@ const page = async () => {
     const postData = await getPost();
     console.log(postData)
     return (
-        <div className='h-screen'>
-            post page
+        <div className='min-h-screen'>
+            <h1>All Posts</h1>
+            <div className='grid grid-cols-4 gap-6'>
+                {
+                  postData.map((post)=>(
+                    <div key={post.id} className='border-2 p-6'>
+                        <h1 className='font-bold text-xl'>{post.title}</h1>
+                        <h1>{post.body}</h1>
+                    </div>
+                  ))  
+                }
+            </div>
         </div>
     );
 };
