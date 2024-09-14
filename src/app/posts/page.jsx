@@ -1,10 +1,8 @@
+import { getPost } from '@/services/postApi';
+import Link from 'next/link';
 import React from 'react';
 
-const getPost = async () => {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts")
-    const data = await res.json()
-    return data
-}
+
 const page = async () => {
     const postData = await getPost();
     console.log(postData)
@@ -17,6 +15,7 @@ const page = async () => {
                     <div key={post.id} className='border-2 p-6'>
                         <h1 className='font-bold text-xl'>{post.title}</h1>
                         <h1>{post.body}</h1>
+                        <button className='p-2 bg-red-600 text-white'><Link href={`/posts/${post.id}`}>View Details</Link></button>
                     </div>
                   ))  
                 }
