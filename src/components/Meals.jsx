@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 const Meals = () => {
@@ -34,6 +35,7 @@ const Meals = () => {
                     meals.length > 0 ? (
                         meals.map((meal) => (
                             <div className='border-2 p-3' key={meal.idMeal}>
+                               <Image src={meal?.strMealThumb} alt={meal.strMeal} width={500} height={500} />
                                 <h6>{meal.strMeal}</h6>
                                 <p>{meal.strInstructions}</p>
                             </div>
